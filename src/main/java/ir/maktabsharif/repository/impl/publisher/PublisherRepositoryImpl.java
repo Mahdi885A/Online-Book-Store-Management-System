@@ -1,6 +1,5 @@
 package ir.maktabsharif.repository.impl.publisher;
 
-import ir.maktabsharif.exception.BookNotFoundException;
 import ir.maktabsharif.model.Publisher;
 import ir.maktabsharif.util.HibernateUtil;
 
