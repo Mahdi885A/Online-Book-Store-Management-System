@@ -8,35 +8,37 @@ import jakarta.persistence.Persistence;
 import java.util.function.Function;
 
 public class HibernateUtil {
-    private static final String PERSISTENCE_UNIT="online-library";
+
+    private static final String PERSISTENCE_UNITE = "online-library";
+
     private static EntityManagerFactory emf;
 
-    private HibernateUtil(){}
+    private HibernateUtil(){
 
-    public static synchronized EntityManagerFactory emf(){
-        if (emf == null)
-            return Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
+    }
+
+    private static EntityManagerFactory getEmf(){
+        if(emf== null){
+            emf = Persistence.createEntityManagerFactory(PERSISTENCE_UNITE);
+        }
         return emf;
     }
 
-    public static EntityManager em(){
-        return emf().createEntityManager();
-    }
-
-    public static <T> T inTxResult(Function<EntityManager,T> operation){
-        EntityManager em=em();
-        EntityTransaction tx=em.getTransaction();
-
-        try(em) {
+    public static <T> T inTxResult(Function<EntityManager, T> operation) {
+        EntityManager em = getEmf().createEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        try {
             tx.begin();
-            T result=operation.apply(em);
+            T result = operation.apply(em);
             tx.commit();
             return result;
-        }catch (RuntimeException e){
-            if (tx.isActive())
-                tx.rollback();
+        } catch (RuntimeException e) {
+            if (tx.isActive()) tx.rollback();
             throw e;
+        } finally {
+            em.close();
         }
     }
-}
 
+
+}

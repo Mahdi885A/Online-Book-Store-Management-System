@@ -13,7 +13,7 @@ public class AuthorProfiles {
     private String bio;
     private String email;
 
-    @OneToOne(mappedBy = "authorProfiles")
+    @OneToOne(mappedBy = "authorProfiles",cascade = CascadeType.ALL)
     private Authors authors;
 
     public AuthorProfiles( String bio, String email, Authors authors) {

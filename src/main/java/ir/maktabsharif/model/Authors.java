@@ -16,7 +16,7 @@ public class Authors {
     @ManyToMany(mappedBy = "authors")
     private List<Book> books;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "profile_id")
     private AuthorProfiles authorProfiles;
 

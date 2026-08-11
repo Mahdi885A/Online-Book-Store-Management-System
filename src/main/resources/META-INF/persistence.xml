@@ -5,13 +5,17 @@
              version="3.2">
     <persistence-unit name="online-library">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>ir.maktabsharif.model.Book</class>
+        <class>ir.maktabsharif.model.Authors</class>
+        <class>ir.maktabsharif.model.AuthorProfiles</class>
+        <class>ir.maktabsharif.model.Publisher</class>
 
 
         <properties><property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost/onlinebookstore"/>
             <property name="jakarta.persistence.jdbc.user" value="postgres"/>
             <property name="jakarta.persistence.jdbc.password" value="ZqX.7391"/>
-            <property name="hibernate.hbm2ddl.auto" value="create"/>
+            <property name="hibernate.hbm2ddl.auto" value="validate"/>
 
         </properties>
 

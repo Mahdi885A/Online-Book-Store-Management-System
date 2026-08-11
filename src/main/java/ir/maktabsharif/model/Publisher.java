@@ -14,7 +14,7 @@ public class Publisher {
 
     private String name;
 
-    @OneToMany(mappedBy = "publisher")
+    @OneToMany(mappedBy = "publisher",cascade = CascadeType.ALL)
     private List<Book> books;
 
 
