@@ -1,4 +1,4 @@
-package model;
+package ir.maktabsharif.model;
 
 import jakarta.persistence.*;
 

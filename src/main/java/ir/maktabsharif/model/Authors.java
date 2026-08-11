@@ -1,10 +1,10 @@
-package model;
+package ir.maktabsharif.model;
 
 import jakarta.persistence.*;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.PrimitiveIterator;
+
 @Entity
 @Table(name = "authors")
 public class Authors {
