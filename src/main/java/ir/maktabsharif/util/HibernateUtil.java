@@ -23,7 +23,7 @@ public class HibernateUtil {
         return emf().createEntityManager();
     }
 
-    public static <T> T inTxReturn(Function<EntityManager,T> operation){
+    public static <T> T inTxResult(Function<EntityManager,T> operation){
         EntityManager em=em();
         EntityTransaction tx=em.getTransaction();
 
